@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEN32 Midtown | Luxe Event &amp; Production Space by Bryant Park</title>
+<meta name="description" content="TEN32 Midtown: a 1,125 sq ft mid-century modern venue on 6th Avenue by Bryant Park. 14 ft ceilings, floor to ceiling windows, custom bar. Events up to 70 guests, shoots from $95/hr.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{
+  --ink:#131110;
+  --char:#1c1916;
+  --concrete:#2a2622;
+  --line:rgba(255,255,255,.12);
+  --walnut:#6e4b34;
+  --brass:#c9a26b;
+  --brass-2:#e2c493;
+  --blush:#e5a49b;
+  --paper:#f4efe8;
+  --stone:#e3dbcf;
+  --text:#2a2521;
+  --muted:#6f655b;
+  --radius:18px;
+  --ease:cubic-bezier(.22,.8,.24,1);
+  --display:'Bricolage Grotesque',sans-serif;
+  --body:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);background:var(--paper);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--walnut);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+.dark .eyebrow{color:var(--brass)}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.025em;font-weight:800}
+.stat b,.score b,.total b,.cap-line b,.mbar b{font-variant-numeric:lining-nums tabular-nums;font-weight:700}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);margin:.5rem 0 1rem}
+.lead{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.dark{background:var(--ink);color:#f1ebe3}
+.dark .lead{color:#b9ada0}
+section{padding:clamp(70px,9vw,120px) 0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;border:0;cursor:pointer;transition:transform .35s var(--ease),background .3s,box-shadow .35s,color .3s}
+.btn-brass{background:var(--brass);color:var(--ink)}
+.btn-brass:hover{background:var(--brass-2);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(201,162,107,.7)}
+.btn-ghost{background:transparent;border:1.5px solid currentColor}
+.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn i{transition:transform .35s var(--ease)}
+.btn:hover i.fa-arrow-right{transform:translateX(4px)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,box-shadow .4s,padding .4s;padding:20px 0}
+.nav.solid{background:rgba(19,17,16,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:-.02em;display:flex;align-items:baseline;gap:8px}
+.logo span{font-size:.68rem;letter-spacing:.3em;color:var(--brass);font-weight:700}
+.links{display:flex;gap:30px;list-style:none}
+.links a{color:#e9e1d6;font-weight:600;font-size:.94rem;position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;background:var(--brass);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:11px 20px;font-size:.9rem}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer;width:44px;height:44px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:0 0 40px;overflow:hidden;background:var(--ink)}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:heroIn 2.4s var(--ease) forwards}
+@keyframes heroIn{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,17,16,.55) 0%,rgba(19,17,16,.1) 35%,rgba(19,17,16,.85) 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.hero h1{font-size:clamp(2.8rem,7.4vw,6.2rem);max-width:12ch;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--brass)}
+.hero p{max-width:44ch;color:#ddd3c7;font-size:1.08rem;margin-top:16px}
+.hero-badge{display:flex;flex-direction:column;gap:8px;background:rgba(19,17,16,.55);backdrop-filter:blur(10px);border:1px solid var(--line);padding:18px 22px;border-radius:var(--radius);min-width:220px}
+.hero-badge .stars{color:var(--brass);letter-spacing:2px}
+.hero-badge strong{font-family:var(--display);font-size:1.6rem}
+.hero-badge small{color:#bdb2a5}
+.fade-up{opacity:0;transform:translateY(26px);animation:fadeUp 1s var(--ease) forwards}
+.d1{animation-delay:.25s}.d2{animation-delay:.45s}.d3{animation-delay:.65s}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+/* quick booking bar */
+.quick{display:grid;grid-template-columns:1.1fr 1fr 1fr auto;background:#fff;color:var(--text);border-radius:22px;padding:8px;gap:4px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.qf{display:flex;flex-direction:column;padding:10px 18px;border-radius:14px;transition:background .3s}
+.qf:hover{background:var(--paper)}
+.qf label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted);display:flex;gap:8px;align-items:center}
+.qf label i{color:var(--walnut)}
+.qf input,.qf select{border:0;background:transparent;font-weight:600;font-size:1rem;padding:4px 0;outline:none;width:100%}
+.quick .btn{border-radius:16px;justify-content:center}
+
+/* stats ribbon */
+.ribbon{background:var(--char);color:#efe7dc;border-top:1px solid var(--line)}
+.ribbon .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+.stat{padding:30px 18px;display:flex;gap:14px;align-items:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat i{font-size:1.3rem;color:var(--brass);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(201,162,107,.1);transition:transform .5s var(--ease),background .3s}
+.stat:hover i{transform:rotate(-12deg) scale(1.08);background:rgba(201,162,107,.22)}
+.stat b{font-family:var(--display);font-size:1.3rem;display:block;line-height:1.1}
+.stat span{font-size:.84rem;color:#a99c8e}
+
+/* use cases */
+.uses-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.tabs{display:flex;gap:6px;background:var(--stone);padding:6px;border-radius:999px}
+.tab{border:0;background:transparent;padding:11px 22px;border-radius:999px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .35s,color .35s}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff}
+.tab:not([aria-selected="true"]):hover{background:rgba(255,255,255,.6)}
+.use{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.use-media{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:5/4}
+.use-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
+.use-media img.on{opacity:1;transform:none}
+.use-media .cap{position:absolute;left:18px;bottom:18px;background:rgba(19,17,16,.75);backdrop-filter:blur(8px);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;font-size:.9rem;display:flex;gap:10px;align-items:center}
+.use-media .cap i{color:var(--brass)}
+.use-body{transition:opacity .4s,transform .4s var(--ease)}
+.use-body.swap{opacity:0;transform:translateY(10px)}
+.use-body h3{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:12px}
+.use-body p{color:var(--muted);margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.chip{padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--stone);font-weight:600;font-size:.88rem;display:flex;gap:8px;align-items:center;transition:transform .3s var(--ease),border-color .3s}
+.chip i{color:var(--walnut)}
+.chip:hover{transform:translateY(-2px);border-color:var(--brass)}
+.cap-line{display:flex;gap:16px;align-items:center;padding:16px 20px;background:#fff;border-radius:14px;border-left:4px solid var(--brass);margin-bottom:24px}
+.cap-line b{font-family:var(--display);font-size:1.6rem}
+
+/* gallery */
+.gal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px;grid-auto-flow:dense}
+.tile{position:relative;overflow:hidden;border-radius:14px;cursor:zoom-in;border:0;padding:0;background:var(--concrete)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),filter .5s}
+.tile::after{content:"\f00e";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;right:14px;bottom:14px;width:40px;height:40px;border-radius:50%;background:var(--brass);color:var(--ink);display:grid;place-items:center;opacity:0;transform:translateY(10px);transition:.4s var(--ease)}
+.tile:hover img{transform:scale(1.07)}
+.tile:hover::after,.tile:focus-visible::after{opacity:1;transform:none}
+.t-big{grid-column:span 2;grid-row:span 2}
+.t-wide{grid-column:span 2}
+.t-tall{grid-row:span 2}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,9,8,.95);display:grid;place-items:center;opacity:0;visibility:hidden;transition:.4s}
+.lb.open{opacity:1;visibility:visible}
+.lb img{max-width:min(1200px,92vw);max-height:80vh;border-radius:10px;object-fit:contain;transition:opacity .3s}
+.lb-btn{position:absolute;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;font-size:1.1rem;transition:background .3s,transform .3s}
+.lb-btn:hover{background:var(--brass);color:var(--ink);transform:scale(1.06)}
+.lb-prev{left:20px;top:50%;translate:0 -50%}.lb-next{right:20px;top:50%;translate:0 -50%}
+.lb-close{right:20px;top:20px}
+.lb-count{position:absolute;bottom:24px;left:50%;translate:-50% 0;color:#cfc4b6;font-weight:700;letter-spacing:.1em}
+
+/* space */
+.space-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:start}
+.amen{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
+.am{display:flex;gap:14px;align-items:center;padding:16px;background:#fff;border-radius:14px;border:1px solid transparent;transition:border-color .3s,transform .35s var(--ease),box-shadow .35s}
+.am:hover{border-color:var(--brass);transform:translateY(-3px);box-shadow:0 16px 30px -20px rgba(60,40,20,.4)}
+.am i{width:42px;height:42px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--paper);color:var(--walnut);font-size:1.05rem}
+.am b{display:block;font-size:.95rem}
+.am small{color:var(--muted);font-size:.82rem}
+.plan{background:#fff;border-radius:24px;padding:18px;position:sticky;top:100px}
+.plan-img{border-radius:14px;overflow:hidden;background:var(--paper);cursor:zoom-in;border:0;padding:0;width:100%}
+.plan-img img{width:100%;transition:transform .8s var(--ease)}
+.plan-img:hover img{transform:scale(1.03)}
+.plan-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 6px 4px;flex-wrap:wrap}
+.plan-foot b{font-family:var(--display);font-size:1.2rem}
+.hours{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.hours span{background:var(--paper);padding:8px 12px;border-radius:10px;font-size:.85rem;font-weight:600}
+.hours i{color:var(--walnut);margin-right:6px}
+
+/* good to know */
+.know{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,70px)}
+.acc{border-top:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-q{width:100%;display:flex;align-items:center;gap:16px;padding:22px 4px;background:none;border:0;cursor:pointer;text-align:left;font-weight:700;font-size:1.05rem;color:#f1ebe3;transition:color .3s}
+.acc-q:hover{color:var(--brass)}
+.acc-q .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(201,162,107,.12);color:var(--brass);flex:none}
+.acc-q .tg{margin-left:auto;transition:transform .4s var(--ease);color:var(--brass)}
+.acc-item.open .tg{transform:rotate(45deg)}
+.acc-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.acc-item.open .acc-a{grid-template-rows:1fr}
+.acc-a>div{overflow:hidden}
+.acc-a p{padding:0 4px 22px 60px;color:#b9ada0}
+.policy{margin-top:30px;padding:22px;border-radius:var(--radius);background:var(--concrete);display:flex;gap:16px}
+.policy i{color:var(--blush);font-size:1.3rem;margin-top:3px}
+.policy p{color:#c9bdb0;font-size:.95rem}
+
+/* reviews */
+.rev-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.score{display:flex;align-items:center;gap:16px}
+.score b{font-family:var(--display);font-size:3.4rem;line-height:1}
+.score .stars{color:var(--brass);letter-spacing:2px}
+.rev-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin}
+.rev{scroll-snap-align:start;background:#fff;border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:16px;border:1px solid var(--stone);transition:transform .4s var(--ease),box-shadow .4s}
+.rev:hover{transform:translateY(-5px);box-shadow:0 22px 40px -26px rgba(60,40,20,.45)}
+.rev .q{color:var(--brass);font-size:1.5rem}
+.rev p{flex:1}
+.who{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--stone)}
+.av{width:42px;height:42px;border-radius:50%;background:var(--walnut);color:#fff;display:grid;place-items:center;font-weight:800;font-family:var(--display)}
+.who small{display:block;color:var(--muted)}
+.rev-nav{display:flex;gap:10px}
+.rn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--text);background:none;cursor:pointer;transition:.3s}
+.rn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* host + location */
+.hl{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}
+.host{background:var(--concrete);border-radius:26px;padding:clamp(26px,4vw,40px);display:flex;flex-direction:column;gap:20px}
+.host-top{display:flex;gap:18px;align-items:center}
+.host-av{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--walnut));display:grid;place-items:center;font-family:var(--display);font-size:1.8rem;font-weight:800;color:var(--ink);position:relative}
+.host-av::after{content:"\f058";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;right:-2px;bottom:-2px;color:var(--brass);background:var(--concrete);border-radius:50%;font-size:1.1rem;width:26px;height:26px;display:grid;place-items:center}
+.host h3{font-size:1.7rem}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badges span{font-size:.8rem;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.badges i{color:var(--brass);margin-right:6px}
+.host p{color:#c3b7aa}
+.loc{border-radius:26px;overflow:hidden;background:var(--concrete);display:flex;flex-direction:column}
+.loc iframe{width:100%;flex:1;min-height:280px;border:0;filter:grayscale(.85) contrast(1.05)}
+.transit{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.transit div{background:var(--concrete);padding:16px 20px;display:flex;gap:12px;align-items:center;font-size:.92rem}
+.transit i{color:var(--brass)}
+.transit b{display:block;color:#fff}
+.transit small{color:#a99c8e}
+
+/* booking */
+.book-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,60px);align-items:start}
+.book-aside{position:sticky;top:100px}
+.book-photo{border-radius:24px;overflow:hidden;aspect-ratio:4/3;margin:26px 0 18px}
+.book-photo img{width:100%;height:100%;object-fit:cover}
+.perks{list-style:none;display:grid;gap:12px}
+.perks li{display:flex;gap:12px;align-items:center;font-weight:600}
+.perks i{color:var(--walnut);width:20px}
+.form{background:#fff;border-radius:26px;padding:clamp(22px,3.4vw,36px);box-shadow:0 30px 60px -40px rgba(60,40,20,.5)}
+.steps{display:flex;gap:6px;margin-bottom:24px}
+.steps span{flex:1;height:4px;border-radius:4px;background:var(--stone);transition:background .4s}
+.steps span.on{background:var(--brass)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{border:1.5px solid var(--stone);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;font-weight:700;font-size:.9rem;display:flex;flex-direction:column;gap:6px;align-items:center;transition:.3s}
+.seg label i{font-size:1.15rem;color:var(--walnut)}
+.seg label small{font-weight:500;color:var(--muted);font-size:.76rem}
+.seg label:hover{border-color:var(--brass)}
+.seg input:checked+label{border-color:var(--ink);background:var(--ink);color:#fff}
+.seg input:checked+label i{color:var(--brass)}
+.seg input:checked+label small{color:#bdb2a5}
+.seg input:focus-visible+label{outline:3px solid var(--brass);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f label{font-size:.8rem;font-weight:700;color:var(--muted)}
+.f input,.f select,.f textarea{border:1.5px solid var(--stone);border-radius:12px;padding:12px 14px;background:var(--paper);transition:border-color .3s,background .3s;width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--brass);background:#fff}
+.f textarea{resize:vertical;min-height:84px}
+.stepper{display:flex;align-items:center;border:1.5px solid var(--stone);border-radius:12px;background:var(--paper);overflow:hidden}
+.stepper button{width:44px;height:46px;border:0;background:transparent;cursor:pointer;color:var(--walnut);transition:background .3s}
+.stepper button:hover{background:var(--stone)}
+.stepper output{flex:1;text-align:center;font-weight:700}
+.hint{font-size:.82rem;margin-top:-4px;margin-bottom:14px;display:flex;gap:8px;align-items:flex-start;color:var(--muted);min-height:1.2em}
+.hint.warn{color:#b0472f}
+.addons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0 18px}
+.addon{display:flex;gap:10px;align-items:center;padding:11px 12px;border:1.5px solid var(--stone);border-radius:12px;cursor:pointer;font-size:.88rem;font-weight:600;transition:.3s}
+.addon:hover{border-color:var(--brass)}
+.addon input{accent-color:var(--walnut);width:18px;height:18px}
+.addon small{margin-left:auto;color:var(--muted);font-weight:600;white-space:nowrap}
+.addon:has(input:checked){border-color:var(--walnut);background:#faf5ee}
+.total{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-radius:16px;background:var(--ink);color:#fff;margin:6px 0 16px;gap:10px}
+.total small{color:#b9ada0;display:block;font-size:.8rem}
+.total b{font-family:var(--display);font-size:1.9rem;color:var(--brass)}
+.form .btn{width:100%;justify-content:center;padding:16px}
+.fine{font-size:.8rem;color:var(--muted);text-align:center;margin-top:12px}
+.done{display:none;text-align:center;padding:30px 10px}
+.done i{font-size:3rem;color:var(--brass);margin-bottom:14px}
+.done h3{font-size:1.8rem;margin-bottom:8px}
+.form.sent .form-body{display:none}
+.form.sent .done{display:block;animation:fadeUp .6s var(--ease) forwards}
+
+/* footer */
+footer{background:var(--ink);color:#bdb2a5;padding:70px 0 30px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.foot h4{color:#fff;font-family:var(--display);margin-bottom:14px;font-size:1rem}
+.foot ul{list-style:none;display:grid;gap:10px}
+.foot a{transition:color .3s}
+.foot a:hover{color:var(--brass)}
+.foot li i{color:var(--brass);width:22px}
+.copy{text-align:center;padding-top:26px;font-size:.85rem}
+
+/* mobile book bar */
+.mbar{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:var(--ink);color:#fff;border-radius:18px;padding:10px 10px 10px 18px;align-items:center;justify-content:space-between;box-shadow:0 20px 40px -10px rgba(0,0,0,.5);transform:translateY(140%);transition:transform .5s var(--ease)}
+.mbar.show{transform:none}
+.mbar b{font-family:var(--display);font-size:1.15rem;color:var(--brass)}
+.mbar small{display:block;color:#b9ada0;font-size:.78rem}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.dl1{transition-delay:.12s}.rv.dl2{transition-delay:.24s}
+
+/* responsive */
+@media(max-width:1020px){
+  .ribbon .wrap{grid-template-columns:repeat(3,1fr)}
+  .stat:nth-child(3){border-right:0}
+  .stat:nth-child(n+4){border-top:1px solid var(--line)}
+  .use,.space-grid,.know,.hl,.book-grid{grid-template-columns:1fr}
+  .plan,.book-aside{position:static}
+  .mosaic{grid-template-columns:repeat(3,1fr);grid-auto-rows:190px}
+}
+@media(max-width:860px){
+  .links{position:fixed;inset:0 0 0 auto;width:min(320px,85vw);flex-direction:column;background:var(--ink);padding:100px 34px;gap:22px;transform:translateX(100%);transition:transform .5s var(--ease);box-shadow:-20px 0 60px rgba(0,0,0,.5)}
+  .links.open{transform:none}
+  .links a{font-size:1.2rem}
+  .burger{display:block;z-index:2}
+  .nav .btn{display:none}
+  .quick{grid-template-columns:1fr 1fr}
+  .quick .btn{grid-column:span 2;padding:15px}
+  .mbar{display:flex}
+  footer{padding-bottom:100px}
+}
+@media(max-width:600px){
+  .wrap{width:calc(100% - 32px)}
+  .hero{padding-bottom:24px}
+  .hero-badge{display:none}
+  .ribbon .wrap{grid-template-columns:1fr 1fr}
+  .stat{border-right:0!important;border-top:1px solid var(--line);padding:20px 8px}
+  .stat:nth-child(5){grid-column:span 2}
+  .tabs{width:100%;overflow-x:auto}
+  .tab{padding:10px 16px;white-space:nowrap}
+  .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:8px}
+  .t-big{grid-column:span 2}
+  .amen,.addons,.transit{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  .seg label{padding:12px 4px;font-size:.82rem}
+  .foot{grid-template-columns:1fr}
+  .lb-prev{left:8px}.lb-next{right:8px}
+  .acc-a p{padding-left:4px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="TEN32 Midtown home">TEN32 <span>MIDTOWN</span></a>
+    <nav aria-label="Main">
+      <ul class="links" id="links">
+        <li><a href="#uses">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#space">The Space</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#location">Location</a></li>
+      </ul>
+    </nav>
+    <a href="#book" class="btn btn-brass"><i class="fa-regular fa-calendar-check"></i> Book Now</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img"><img src="https://www.tagvenue.com/resize/202608/ee/9d/widen-1680-noupsize;71630-midtown-luxe-venue-room-qvevZ3Uj.jpeg" alt="TEN32 Midtown event space with hardwood floors and tall windows"></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <span class="eyebrow fade-up" style="color:var(--brass)">6th Avenue · Bryant Park</span>
+        <h1 class="fade-up d1">Midtown, <em>elevated.</em></h1>
+        <p class="fade-up d2">A mid-century modern loft in the heart of Manhattan with 14 ft ceilings, floor to ceiling windows and a custom bar. Ready for your party, shoot or launch.</p>
+      </div>
+      <div class="hero-badge fade-up d3">
+        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+        <strong>5.0 rating</strong>
+        <small>33 happy bookings · Superhost</small>
+      </div>
+    </div>
+
+    <form class="quick fade-up d3" id="quick" aria-label="Quick availability check">
+      <div class="qf">
+        <label for="qType"><i class="fa-solid fa-wand-magic-sparkles"></i> Planning</label>
+        <select id="qType">
+          <option value="event">An event or party</option>
+          <option value="production">A photo or film shoot</option>
+          <option value="meeting">A meeting</option>
+        </select>
+      </div>
+      <div class="qf">
+        <label for="qDate"><i class="fa-regular fa-calendar"></i> Date</label>
+        <input type="date" id="qDate">
+      </div>
+      <div class="qf">
+        <label for="qGuests"><i class="fa-solid fa-user-group"></i> Guests</label>
+        <input type="number" id="qGuests" min="1" max="70" value="30">
+      </div>
+      <button class="btn btn-brass" type="submit">Check &amp; Book <i class="fa-solid fa-arrow-right"></i></button>
+    </form>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="ribbon">
+  <div class="wrap">
+    <div class="stat"><i class="fa-solid fa-ruler-vertical"></i><div><b>14 ft</b><span>Ceilings</span></div></div>
+    <div class="stat"><i class="fa-solid fa-vector-square"></i><div><b>1,125 sq ft</b><span>Open floor</span></div></div>
+    <div class="stat"><i class="fa-solid fa-people-group"></i><div><b>70 / 45</b><span>Standing / seated</span></div></div>
+    <div class="stat"><i class="fa-regular fa-clock"></i><div><b>4 hr min</b><span>From $95 per hour</span></div></div>
+    <div class="stat"><i class="fa-solid fa-train-subway"></i><div><b>1 block</b><span>To Bryant Park</span></div></div>
+  </div>
+</div>
+
+<!-- USE CASES -->
+<section id="uses">
+  <div class="wrap">
+    <div class="uses-head rv">
+      <div>
+        <span class="eyebrow">One room, many moments</span>
+        <h2>What are you planning?</h2>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Event types">
+        <button class="tab" role="tab" aria-selected="true" data-use="0"><i class="fa-solid fa-champagne-glasses"></i> Celebrate</button>
+        <button class="tab" role="tab" aria-selected="false" data-use="1"><i class="fa-solid fa-camera-retro"></i> Create</button>
+        <button class="tab" role="tab" aria-selected="false" data-use="2"><i class="fa-solid fa-briefcase"></i> Meet</button>
+      </div>
+    </div>
+    <div class="use rv">
+      <div class="use-media">
+        <img class="on" src="https://www.tagvenue.com/resize/7d/98/widen-1680-noupsize;71630-midtown-luxe-venue-room.jpg" alt="Lounge and bar area at TEN32 Midtown">
+        <img src="https://www.tagvenue.com/resize/fe/e9/widen-1680-noupsize;71630-midtown-luxe-venue-room.jpg" alt="Open floor with natural light from the tall windows" loading="lazy">
+        <img src="https://www.tagvenue.com/resize/db/8a/widen-1680-noupsize;71630-midtown-luxe-venue-room.jpg" alt="Seating area inside TEN32 Midtown" loading="lazy">
+        <div class="cap"><i class="fa-solid fa-users"></i> <span id="capTxt">Up to 70 guests standing</span></div>
+      </div>
+      <div class="use-body" id="useBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="dark" id="gallery">
+  <div class="wrap">
+    <div class="gal-head rv">
+      <div>
+        <span class="eyebrow">Take the tour</span>
+        <h2>See every corner</h2>
+        <p class="lead">Polished hardwood, textured concrete walls and a wall of windows over 6th Avenue. Tap any photo to view it full screen.</p>
+      </div>
+      <a href="#book" class="btn btn-ghost">Reserve this space <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="mosaic" id="mosaic"></div>
+  </div>
+</section>
+
+<!-- THE SPACE -->
+<section id="space">
+  <div class="wrap space-grid">
+    <div class="rv">
+      <span class="eyebrow">The space</span>
+      <h2>Everything is already here</h2>
+      <p class="lead">Mid-century and contemporary modern styling, a sound system that fills the room, and screens ready for slides, playlists or a premiere. Bring your guests and your vision.</p>
+      <div class="amen">
+        <div class="am"><i class="fa-solid fa-martini-glass-citrus"></i><div><b>Custom bar</b><small>BYO alcohol allowed</small></div></div>
+        <div class="am"><i class="fa-solid fa-tv"></i><div><b>Two QLED TVs</b><small>Slides, screenings, playlists</small></div></div>
+        <div class="am"><i class="fa-solid fa-volume-high"></i><div><b>Bose premium sound</b><small>Bring your own DJ</small></div></div>
+        <div class="am"><i class="fa-solid fa-city"></i><div><b>City views</b><small>Floor to ceiling windows</small></div></div>
+        <div class="am"><i class="fa-solid fa-wifi"></i><div><b>Fast wifi</b><small>Plus air conditioning</small></div></div>
+        <div class="am"><i class="fa-solid fa-mug-hot"></i><div><b>Coffee, tea &amp; water</b><small>Complimentary</small></div></div>
+        <div class="am"><i class="fa-solid fa-utensils"></i><div><b>Kitchen access</b><small>External catering welcome</small></div></div>
+        <div class="am"><i class="fa-solid fa-wheelchair"></i><div><b>Accessible</b><small>Elevator and freight elevator</small></div></div>
+      </div>
+    </div>
+    <aside class="plan rv dl1">
+      <button class="plan-img" id="planBtn" aria-label="Open floor plan full screen">
+        <img src="https://www.tagvenue.com/resize/202608/af/af/widen-1680-noupsize;71630-midtown-luxe-venue-room-psnTJysv.jpg" alt="Floor plan of TEN32 Midtown showing lounge, dining, bar and restrooms" loading="lazy">
+      </button>
+      <div class="plan-foot">
+        <div><small style="color:var(--muted)">Floor plan</small><b>Second floor · 1,125 sq ft</b></div>
+        <a href="#book" class="btn btn-brass" style="padding:11px 18px">Book it <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="hours">
+        <span><i class="fa-regular fa-clock"></i>Mon to Sat · 6 AM to 2 AM</span>
+        <span><i class="fa-regular fa-clock"></i>Sun · 6 AM to 10 PM</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- GOOD TO KNOW -->
+<section class="dark">
+  <div class="wrap know">
+    <div class="rv">
+      <span class="eyebrow">Good to know</span>
+      <h2>Simple house rules</h2>
+      <p class="lead">A few things that keep every event smooth. Have a question that is not covered here? Ask in your booking request and the host will reply within a few hours.</p>
+      <div class="policy">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p><b style="color:#fff">Free cancellation for 24 hours.</b> Cancel within 24 hours of confirmation for a full refund, as long as your booking starts more than 48 hours later.</p>
+      </div>
+    </div>
+    <div class="acc rv dl1" id="acc">
+      <div class="acc-item open"><button class="acc-q" aria-expanded="true"><span class="ic"><i class="fa-solid fa-hourglass-half"></i></span>Setup is part of your booking<i class="fa-solid fa-plus tg"></i></button><div class="acc-a"><div><p>Setup and breakdown happen within your booked time, so plan for 5 to 6 hours for most events. Events of 5 hours or more can reserve extra setup time at $150 per hour for up to 5 people. Overtime is billed at 1.5x when available.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false"><span class="ic"><i class="fa-solid fa-burger"></i></span>Food and drinks<i class="fa-solid fa-plus tg"></i></button><div class="acc-a"><div><p>Bring your own food, refreshments and caterer. Your catering or decor team removes everything they bring in, or you can add trash removal at checkout.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false"><span class="ic"><i class="fa-solid fa-wine-glass"></i></span>Alcohol policy<i class="fa-solid fa-plus tg"></i></button><div class="acc-a"><div><p>BYO alcohol is welcome. No shots are served, liquor liability insurance is required, and there is zero tolerance for underage drinking.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false"><span class="ic"><i class="fa-solid fa-music"></i></span>Music and DJs<i class="fa-solid fa-plus tg"></i></button><div class="acc-a"><div><p>Play amplified music from the in-house iPad or TV, or bring your own DJ. The Bose system is ready when you arrive.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false"><span class="ic"><i class="fa-solid fa-ban-smoking"></i></span>No smoking or vaping<i class="fa-solid fa-plus tg"></i></button><div class="acc-a"><div><p>Smoking and vaping are not allowed inside. Violations and other rule breaks carry a $250 fee.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false"><span class="ic"><i class="fa-solid fa-elevator"></i></span>Getting upstairs<i class="fa-solid fa-plus tg"></i></button><div class="acc-a"><div><p>The venue is on the second floor. On Sundays and after 8 PM the main elevator is off, so use the stairs or the freight elevator.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false"><span class="ic"><i class="fa-solid fa-video"></i></span>Productions and changes<i class="fa-solid fa-plus tg"></i></button><div class="acc-a"><div><p>Productions with more than 19 people are priced as events. Changes to guest count or add-ons can be made within 24 hours of confirmation. A walkthrough video is available on request before you book.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="rev-head rv">
+      <div>
+        <span class="eyebrow">Guest reviews</span>
+        <h2>Loved by hosts &amp; creators</h2>
+      </div>
+      <div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap">
+        <div class="score"><b>5.0</b><div><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><small style="color:var(--muted)">from 33 bookings</small></div></div>
+        <div class="rev-nav"><button class="rn" data-dir="-1" aria-label="Previous reviews"><i class="fa-solid fa-arrow-left"></i></button><button class="rn" data-dir="1" aria-label="Next reviews"><i class="fa-solid fa-arrow-right"></i></button></div>
+      </div>
+    </div>
+    <div class="rev-track rv" id="revTrack" tabindex="0" aria-label="Reviews">
+      <article class="rev"><i class="fa-solid fa-quote-left q"></i><p>I'm so very grateful to be able to shoot here again! The hosts were so accommodating and helpful with working around a big parade in the city. As always, I love the space, it's so beautiful and well kept!</p><div class="who"><span class="av">H</span><div><b>Hannah D.</b><small>Filming · Oct 2025</small></div></div></article>
+      <article class="rev"><i class="fa-solid fa-quote-left q"></i><p>It was great! Our host was extremely helpful and answered loads of our questions. The venue was set up perfectly and professionally. Our afterparty went very well and our guests had a great time.</p><div class="who"><span class="av">T</span><div><b>Tony Z.</b><small>Birthday party · Sep 2025</small></div></div></article>
+      <article class="rev"><i class="fa-solid fa-quote-left q"></i><p>Great event venue! Kayla responded to many questions I had before and after booking. And Zida was super helpful when we were planning and setting up.</p><div class="who"><span class="av">J</span><div><b>Juhyeon L.</b><small>Meetup</small></div></div></article>
+      <article class="rev"><i class="fa-solid fa-quote-left q"></i><p>Super friendly staff, great venue! We were able to change the lights and the TV to our liking for our film shoot. Recommend!</p><div class="who"><span class="av">K</span><div><b>Kexin Z.</b><small>Filming · Apr 2025</small></div></div></article>
+      <article class="rev"><i class="fa-solid fa-quote-left q"></i><p>What a beautiful space and great customer service from start to end of the rental! Grateful to have filmed here!</p><div class="who"><span class="av">H</span><div><b>Hannah D.</b><small>Filming · Mar 2025</small></div></div></article>
+      <article class="rev"><i class="fa-solid fa-quote-left q"></i><p>Everything was great! The staff were friendly and helpful. Highly recommended.</p><div class="who"><span class="av">G</span><div><b>Grace W.</b><small>Filming · Feb 2025</small></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- HOST + LOCATION -->
+<section class="dark" id="location">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:36px">
+      <span class="eyebrow">Host &amp; location</span>
+      <h2>Easy to reach, easy to work with</h2>
+    </div>
+    <div class="hl">
+      <div class="host rv">
+        <div class="host-top">
+          <div class="host-av" aria-hidden="true">K</div>
+          <div><small style="color:#a99c8e">Your host</small><h3>Kayla R.</h3></div>
+        </div>
+        <div class="badges">
+          <span><i class="fa-solid fa-medal"></i>Superhost</span>
+          <span><i class="fa-solid fa-bolt"></i>Replies in a few hours</span>
+          <span><i class="fa-regular fa-calendar"></i>Hosting since 2024</span>
+        </div>
+        <p>Kayla and the TEN32 team help you plan, answer questions before the day and make sure the room is set up the way you pictured it. Guests regularly mention how responsive and flexible the team is.</p>
+        <a href="#book" class="btn btn-brass" style="align-self:flex-start"><i class="fa-regular fa-paper-plane"></i> Send Kayla a request</a>
+      </div>
+      <div class="loc rv dl1">
+        <iframe title="Map showing 1032 6th Avenue, New York" loading="lazy" src="https://maps.google.com/maps?q=1032%206th%20Avenue%2C%20New%20York%2C%20NY%2010018&z=15&output=embed"></iframe>
+        <div class="transit">
+          <div><i class="fa-solid fa-location-dot"></i><span><b>1032 6th Avenue, Suite 201</b><small>New York, NY 10018</small></span></div>
+          <div><i class="fa-solid fa-tree-city"></i><span><b>Bryant Park</b><small>A short stroll away</small></span></div>
+          <div><i class="fa-solid fa-bus"></i><span><b>Port Authority</b><small>Within a few blocks</small></span></div>
+          <div><i class="fa-solid fa-train"></i><span><b>Penn &amp; PATH</b><small>Within a few blocks</small></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="wrap book-grid">
+    <div class="book-aside rv">
+      <span class="eyebrow">Reserve your date</span>
+      <h2>Make it happen at TEN32</h2>
+      <p class="lead">Tell us about your plans and get a confirmed quote fast. No payment is taken until the host approves your request.</p>
+      <div class="book-photo"><img src="https://www.tagvenue.com/resize/2f/e3/widen-1680-noupsize;71630-midtown-luxe-venue-room.jpg" alt="Interior of TEN32 Midtown ready for guests" loading="lazy"></div>
+      <ul class="perks">
+        <li><i class="fa-solid fa-circle-check"></i> From $95 per hour, 4 hour minimum</li>
+        <li><i class="fa-solid fa-circle-check"></i> Free cancellation within 24 hours</li>
+        <li><i class="fa-solid fa-circle-check"></i> Walkthrough video on request</li>
+      </ul>
+    </div>
+
+    <form class="form rv dl1" id="bookForm" novalidate>
+      <div class="form-body">
+        <div class="steps" aria-hidden="true"><span class="on"></span><span id="s2"></span><span id="s3"></span></div>
+        <fieldset style="border:0">
+          <legend style="font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:10px">What are you booking?</legend>
+          <div class="seg">
+            <input type="radio" name="type" id="tEvent" value="event" checked><label for="tEvent"><i class="fa-solid fa-champagne-glasses"></i>Event<small>Up to 70</small></label>
+            <input type="radio" name="type" id="tProd" value="production"><label for="tProd"><i class="fa-solid fa-camera-retro"></i>Shoot<small>Up to 45</small></label>
+            <input type="radio" name="type" id="tMeet" value="meeting"><label for="tMeet"><i class="fa-solid fa-briefcase"></i>Meeting<small>Up to 5</small></label>
+          </div>
+        </fieldset>
+
+        <div class="row">
+          <div class="f"><label for="date">Date</label><input type="date" id="date" required></div>
+          <div class="f"><label for="start">Start time</label><select id="start"></select></div>
+        </div>
+        <div class="row">
+          <div class="f"><label>Hours</label><div class="stepper"><button type="button" data-step="hours" data-d="-1" aria-label="Fewer hours"><i class="fa-solid fa-minus"></i></button><output id="hours">5</output><button type="button" data-step="hours" data-d="1" aria-label="More hours"><i class="fa-solid fa-plus"></i></button></div></div>
+          <div class="f"><label>Guests</label><div class="stepper"><button type="button" data-step="guests" data-d="-5" aria-label="Fewer guests"><i class="fa-solid fa-minus"></i></button><output id="guests">30</output><button type="button" data-step="guests" data-d="5" aria-label="More guests"><i class="fa-solid fa-plus"></i></button></div></div>
+        </div>
+        <p class="hint" id="hint" aria-live="polite"></p>
+
+        <label style="font-size:.8rem;font-weight:700;color:var(--muted)">Add-ons (optional)</label>
+        <div class="addons">
+          <label class="addon"><input type="checkbox" data-price="100" data-name="Upholstered chairs"> Chairs <small>$100</small></label>
+          <label class="addon"><input type="checkbox" data-price="100" data-name="Cocktail tables"> Cocktail tables <small>$100</small></label>
+          <label class="addon"><input type="checkbox" data-price="50" data-name="Mic and speaker"> Mic &amp; speaker <small>$50</small></label>
+          <label class="addon"><input type="checkbox" data-price="50" data-hourly="1" data-name="Event doorman"> Doorman <small>$50/hr</small></label>
+          <label class="addon"><input type="checkbox" data-price="400" data-name="Photographer"> Photographer <small>$400</small></label>
+        </div>
+
+        <div class="row">
+          <div class="f"><label for="name">Your name</label><input id="name" autocomplete="name" required placeholder="Full name"></div>
+          <div class="f"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required placeholder="you@email.com"></div>
+        </div>
+        <div class="f" style="margin-bottom:16px"><label for="msg">Tell us about your plans</label><textarea id="msg" placeholder="Birthday dinner, product launch, music video..."></textarea></div>
+
+        <div class="total">
+          <div><small>Estimated total</small><span id="breakdown" style="font-size:.85rem;color:#cfc4b6">5 hrs × $95</span></div>
+          <b id="total">$475</b>
+        </div>
+        <button class="btn btn-brass" type="submit"><i class="fa-regular fa-paper-plane"></i> Send Booking Request</button>
+        <p class="fine">Estimate before fees. The host confirms your final quote.</p>
+      </div>
+      <div class="done" role="status">
+        <i class="fa-solid fa-circle-check"></i>
+        <h3>Request sent!</h3>
+        <p style="color:var(--muted);margin-bottom:20px">Thanks <span id="doneName"></span>. Kayla usually replies within a few hours with your confirmed quote.</p>
+        <button class="btn btn-ghost" type="button" id="again" style="color:var(--ink)">Make another request</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="logo" style="margin-bottom:14px">TEN32 <span>MIDTOWN</span></a>
+        <p style="max-width:36ch;margin-top:12px">A luxe mid-century modern venue by Bryant Park for events, shoots and meetings in the heart of Manhattan.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="#uses">Events</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#space">The Space</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#book">Book Now</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i>1032 6th Avenue, Suite 201<br><span style="padding-left:22px">New York, NY 10018</span></li>
+          <li><i class="fa-regular fa-clock"></i>Mon to Sat · 6 AM to 2 AM</li>
+          <li><i class="fa-regular fa-clock"></i>Sun · 6 AM to 10 PM</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© <span id="yr"></span> TEN32 Midtown. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- MOBILE BOOK BAR -->
+<div class="mbar" id="mbar">
+  <div><b>$95 / hr</b><small>4 hr minimum · 5.0 <i class="fa-solid fa-star" style="color:var(--brass)"></i></small></div>
+  <a href="#book" class="btn btn-brass" style="padding:12px 20px">Book Now</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <img id="lbImg" alt="">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+  <span class="lb-count" id="lbCount"></span>
+</div>
+
+<script>
+(()=>{
+const T='https://www.tagvenue.com/resize/';
+const gal=[
+  '202608/da/f8/widen-1680-noupsize;71630-midtown-luxe-venue-room-RHTocA5l.jpeg',
+  '202608/fb/01/widen-1680-noupsize;71630-midtown-luxe-venue-room-5Ow0YMQ6.jpeg',
+  '202608/c8/f1/widen-1680-noupsize;71630-midtown-luxe-venue-room-QCApO8hl.jpeg',
+  '202608/ef/b5/widen-1680-noupsize;71630-midtown-luxe-venue-room-FJ30Rv3y.jpg',
+  '202608/a2/a3/widen-1680-noupsize;71630-midtown-luxe-venue-room-AR7T50lX.jpeg',
+  '202608/01/a2/widen-1680-noupsize;71630-midtown-luxe-venue-room-zzNlZSrH.jpeg',
+  '202608/09/28/widen-1680-noupsize;71630-midtown-luxe-venue-room-RNvjNNcr.jpeg',
+  '202608/ea/36/widen-1680-noupsize;71630-midtown-luxe-venue-room-Ok6bwVsZ.jpeg',
+  '202608/fe/da/widen-1680-noupsize;71630-midtown-luxe-venue-room-kMCHCDf7.jpeg',
+  '202608/e3/77/widen-1680-noupsize;71630-midtown-luxe-venue-room-Ty6rt0WZ.jpeg',
+  '202608/ce/98/widen-1680-noupsize;71630-midtown-luxe-venue-room-byCQPXTc.jpeg'
+].map(p=>T+p);
+const spans=['t-big','','t-tall','','t-wide','','','t-big','','t-wide',''];
+
+/* gallery */
+const mosaic=document.getElementById('mosaic');
+gal.forEach((src,i)=>{
+  const b=document.createElement('button');
+  b.className='tile rv '+spans[i];
+  b.setAttribute('aria-label','Open photo '+(i+1)+' of '+gal.length);
+  b.innerHTML='<img src="'+src+'" alt="TEN32 Midtown interior, photo '+(i+1)+'" loading="lazy">';
+  b.onclick=()=>openLb(gal,i);
+  mosaic.appendChild(b);
+});
+
+/* lightbox */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCount=document.getElementById('lbCount');
+let set=[],idx=0,lastFocus=null;
+function show(){lbImg.style.opacity=0;setTimeout(()=>{lbImg.src=set[idx];lbImg.alt='Photo '+(idx+1);lbImg.style.opacity=1},150);lbCount.textContent=(idx+1)+' / '+set.length;
+  const multi=set.length>1;document.getElementById('lbPrev').hidden=!multi;document.getElementById('lbNext').hidden=!multi;lbCount.hidden=!multi}
+function openLb(s,i){set=s;idx=i;lastFocus=document.activeElement;show();lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lbClose').focus()}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+function step(d){idx=(idx+d+set.length)%set.length;show()}
+document.getElementById('lbClose').onclick=closeLb;
+document.getElementById('lbPrev').onclick=()=>step(-1);
+document.getElementById('lbNext').onclick=()=>step(1);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+let tx=0;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)step(dx<0?1:-1)});
+document.getElementById('planBtn').onclick=()=>openLb([T+'202608/af/af/widen-1680-noupsize;71630-midtown-luxe-venue-room-psnTJysv.jpg'],0);
+
+/* nav */
+const nav=document.getElementById('nav'),mbar=document.getElementById('mbar'),bookSec=document.getElementById('book');
+const onScroll=()=>{nav.classList.toggle('solid',scrollY>40);
+  const r=bookSec.getBoundingClientRect();mbar.classList.toggle('show',scrollY>innerHeight*.7&&!(r.top<innerHeight&&r.bottom>0))};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const burger=document.getElementById('burger'),links=document.getElementById('links');
+burger.onclick=()=>{const o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.innerHTML=o?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>'};
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>{links.classList.remove('open');burger.setAttribute('aria-expanded',false);burger.innerHTML='<i class="fa-solid fa-bars"></i>'});
+
+/* use-case tabs */
+const uses=[
+ {cap:'Up to 70 guests standing',title:'Parties that feel like a penthouse',text:'Birthdays, showers, engagement parties and holiday nights. Dim the lights, cue the Bose system and let the custom bar become the center of the room.',chips:[['fa-cake-candles','Birthdays'],['fa-ring','Engagements'],['fa-baby','Baby showers'],['fa-gift','Holiday parties'],['fa-graduation-cap','Graduations']],cap2:['70','standing guests, 45 seated'],type:'event'},
+ {cap:'Up to 45 cast & crew',title:'A ready made set for your shoot',text:'Natural light through floor to ceiling windows, dark wood floors and textured concrete walls. Lighting and TVs can be adjusted to suit your look.',chips:[['fa-camera','Photo shoots'],['fa-film','Film & video'],['fa-music','Music videos'],['fa-podcast','Podcasts'],['fa-microphone','Interviews']],cap2:['45','cast & crew on set'],type:'production'},
+ {cap:'Small team sessions',title:'Meetings with a Manhattan backdrop',text:'Swap the conference room for a lounge with fast wifi, two large screens and complimentary coffee and tea, steps from Bryant Park.',chips:[['fa-chalkboard-user','Workshops'],['fa-handshake','Client meetings'],['fa-lightbulb','Brainstorms'],['fa-tv','Screen shares']],cap2:['5','attendees for meetings'],type:'meeting'}
+];
+const useBody=document.getElementById('useBody'),useImgs=document.querySelectorAll('.use-media img'),capTxt=document.getElementById('capTxt');
+function renderUse(i){const u=uses[i];
+  useBody.innerHTML='<h3>'+u.title+'</h3><p>'+u.text+'</p><div class="chips">'+u.chips.map(c=>'<span class="chip"><i class="fa-solid '+c[0]+'"></i>'+c[1]+'</span>').join('')+'</div><div class="cap-line"><b>'+u.cap2[0]+'</b><span>'+u.cap2[1]+'</span></div><a href="#book" class="btn btn-brass" data-type="'+u.type+'">Book for this <i class="fa-solid fa-arrow-right"></i></a>';
+  useBody.querySelector('a').onclick=()=>setType(u.type);
+  useImgs.forEach((im,k)=>im.classList.toggle('on',k===i));capTxt.textContent=u.cap}
+renderUse(0);
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
+  useBody.classList.add('swap');setTimeout(()=>{renderUse(+t.dataset.use);useBody.classList.remove('swap')},250)});
+
+/* accordion */
+document.querySelectorAll('.acc-q').forEach(q=>q.onclick=()=>{const it=q.parentElement,o=!it.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(x=>{x.classList.remove('open');x.querySelector('.acc-q').setAttribute('aria-expanded',false)});
+  if(o){it.classList.add('open');q.setAttribute('aria-expanded',true)}});
+
+/* reviews nav */
+const track=document.getElementById('revTrack');
+document.querySelectorAll('.rn').forEach(b=>b.onclick=()=>track.scrollBy({left:+b.dataset.dir*(track.querySelector('.rev').offsetWidth+18),behavior:'smooth'}));
+
+/* booking form */
+const RATE=95,MIN=4,caps={event:70,production:45,meeting:5};
+const f=document.getElementById('bookForm'),dateEl=document.getElementById('date'),startEl=document.getElementById('start'),hint=document.getElementById('hint');
+const st={hours:5,guests:30};
+const today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());
+const iso=today.toISOString().slice(0,10);
+dateEl.min=iso;document.getElementById('qDate').min=iso;
+for(let h=6;h<=22;h++){const o=document.createElement('option');o.value=h;o.textContent=((h+11)%12+1)+':00 '+(h<12?'AM':'PM');if(h===18)o.selected=true;startEl.appendChild(o)}
+const type=()=>f.querySelector('input[name=type]:checked').value;
+function setType(t){const el=f.querySelector('input[value="'+t+'"]');if(el){el.checked=true;calc()}}
+function fmtHour(h){h=h%24;return ((h+11)%12+1)+(h<12?' AM':' PM')}
+function calc(){
+  const t=type(),cap=caps[t];
+  st.guests=Math.max(1,Math.min(cap,st.guests));st.hours=Math.max(MIN,Math.min(20,st.hours));
+  document.getElementById('hours').textContent=st.hours;document.getElementById('guests').textContent=st.guests;
+  let add=0,names=[];
+  f.querySelectorAll('.addon input:checked').forEach(c=>{const p=+c.dataset.price*(c.dataset.hourly?st.hours:1);add+=p;names.push(c.dataset.name)});
+  const base=st.hours*RATE,total=base+add;
+  document.getElementById('total').textContent='$'+total.toLocaleString();
+  document.getElementById('breakdown').textContent=st.hours+' hrs × $'+RATE+(add?' + $'+add+' add-ons':'');
+  // hints
+  let msg='',warn=false;
+  const start=+startEl.value,end=start+st.hours;
+  if(dateEl.value){const day=new Date(dateEl.value+'T12:00').getDay(),close=day===0?22:26;
+    if(end>close){msg='<i class="fa-solid fa-triangle-exclamation"></i> That runs past closing ('+(day===0?'10 PM on Sundays':'2 AM')+'). Try an earlier start or fewer hours.';warn=true}}
+  if(!msg&&t==='production'&&st.guests>19){msg='<i class="fa-solid fa-circle-info"></i> Productions with more than 19 people are priced as events. The host will confirm your quote.'}
+  if(!msg&&st.guests===cap){msg='<i class="fa-solid fa-circle-info"></i> That is the maximum for this booking type.'}
+  if(!msg)msg='<i class="fa-regular fa-clock"></i> '+fmtHour(start)+' to '+fmtHour(end)+'. Setup and breakdown are included in this time.';
+  hint.innerHTML=msg;hint.classList.toggle('warn',warn);
+  // progress
+  document.getElementById('s2').classList.toggle('on',!!dateEl.value);
+  document.getElementById('s3').classList.toggle('on',!!(document.getElementById('name').value&&document.getElementById('email').value));
+  return !warn;
+}
+f.addEventListener('input',calc);f.addEventListener('change',calc);
+f.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>{st[b.dataset.step]+=+b.dataset.d;calc()});
+calc();
+f.addEventListener('submit',e=>{e.preventDefault();
+  const name=document.getElementById('name'),email=document.getElementById('email');
+  const bad=[dateEl,name,email].find(el=>!el.value||(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value)));
+  if(bad){bad.focus();bad.style.borderColor='#b0472f';setTimeout(()=>bad.style.borderColor='',1800);hint.innerHTML='<i class="fa-solid fa-triangle-exclamation"></i> Please add your '+(bad===dateEl?'date':bad===name?'name':'email')+'.';hint.classList.add('warn');return}
+  if(!calc())return;
+  document.getElementById('doneName').textContent=name.value.split(' ')[0];
+  f.classList.add('sent');f.scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.getElementById('again').onclick=()=>{f.reset();f.classList.remove('sent');st.hours=5;st.guests=30;calc()};
+
+/* quick bar -> form */
+document.getElementById('quick').addEventListener('submit',e=>{e.preventDefault();
+  setType(document.getElementById('qType').value);
+  const d=document.getElementById('qDate').value;if(d)dateEl.value=d;
+  st.guests=+document.getElementById('qGuests').value||30;calc();
+  bookSec.scrollIntoView({behavior:'smooth'});setTimeout(()=>(d?f.querySelector('#name'):dateEl).focus({preventScroll:true}),800)});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
